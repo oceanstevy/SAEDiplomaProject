@@ -54,14 +54,14 @@ public class GameManager : MonoBehaviour
             m_Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         }
 
-        //Searches every Enemy
+        //Searches every Item
         if (GameObject.FindGameObjectsWithTag("Item").Length > 0)
         {
             m_Items.AddRange(GameObject.FindGameObjectsWithTag("Item"));
         }
 
-        //Searches every Enemy
-        if (GameObject.FindGameObjectsWithTag("Item").Length > 0)
+        //Searches every Event
+        if (GameObject.FindGameObjectsWithTag("Event").Length > 0)
         {
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
