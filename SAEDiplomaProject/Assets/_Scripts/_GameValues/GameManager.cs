@@ -47,11 +47,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         //Searches every Enemy
         if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
         {
@@ -69,5 +65,11 @@ public class GameManager : MonoBehaviour
         {
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+       
     }
 }

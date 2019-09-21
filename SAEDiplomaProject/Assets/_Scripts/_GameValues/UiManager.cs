@@ -19,8 +19,8 @@ public class UiManager : MonoBehaviour
     /// This Values is need for our singleton, so we have acces from everywhere
     /// </summary>
     public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
-    /// <summary>
-    /// This button will be used 2 start the game
+    /// <summary>
+    /// This is a TextExemple for will
     /// </summary>
     public GameObject TestText { get => m_TestText; set => m_TestText = value; }
     #endregion Properties
@@ -37,13 +37,15 @@ public class UiManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        Crosshair = GameObject.Find("UiCorsshair");
+        TestText = GameObject.Find("TestText");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Crosshair = GameObject.Find("UiCorsshair");
-        TestText = GameObject.Find("TestText");
+        
     }
 
     // Update is called once per frame
