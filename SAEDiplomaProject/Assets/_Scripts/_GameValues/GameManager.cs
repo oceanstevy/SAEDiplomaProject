@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     #region MemberVariables
     //Singleton
-    private GameManager m_Instance;
+    private static GameManager m_Instance;
 
     //Overworld Values
     private List<GameObject> m_Enemies;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// This Values is need for our singleton, so we have acces from everywhere
     /// </summary>
-    public GameManager Instance { get => m_Instance; set => m_Instance = value; }
+    public static GameManager Instance { get => m_Instance; set => m_Instance = value; }
 
     #endregion Properties
 

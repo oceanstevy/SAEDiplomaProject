@@ -6,7 +6,7 @@ public class UiManager : MonoBehaviour
 {
     #region MemberVariables
     private GameObject m_Crosshair;
-    private UiManager m_Instance;
+    private static UiManager m_Instance;
     #endregion MemberVariables
     #region Properties
     /// <summary>
@@ -16,7 +16,7 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// This Values is need for our singleton, so we have acces from everywhere
     /// </summary>
-    public UiManager Instance { get => m_Instance; set => m_Instance = value; }
+    public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
     #endregion Properties
 
     private void Awake()
