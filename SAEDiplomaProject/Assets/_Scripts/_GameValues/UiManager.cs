@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
     #region MemberVariables
     private GameObject m_Crosshair;
     private UiManager m_Instance;
+    private GameObject m_StartGameButton;
     #endregion MemberVariables
     #region Properties
     /// <summary>
@@ -17,6 +18,10 @@ public class UiManager : MonoBehaviour
     /// This Values is need for our singleton, so we have acces from everywhere
     /// </summary>
     public UiManager Instance { get => m_Instance; set => m_Instance = value; }
+    /// <summary>
+    /// This button will be used 2 start the game
+    /// </summary>
+    public GameObject StartGameButton { get => m_StartGameButton; set => m_StartGameButton = value; }
     #endregion Properties
 
     private void Awake()
@@ -37,6 +42,7 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         Crosshair = GameObject.Find("UiCorsshair");
+        m_StartGameButton = GameObject.Find("StartGame");
     }
 
     // Update is called once per frame
