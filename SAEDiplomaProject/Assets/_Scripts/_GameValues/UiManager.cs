@@ -22,7 +22,6 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// This button will be used 2 start the game
     /// </summary>
-    public GameObject StartGameButton { get => m_StartGameButton; set => m_StartGameButton = value; }
     public GameObject TestText { get => m_TestText; set => m_TestText = value; }
     #endregion Properties
 
