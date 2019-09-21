@@ -18,14 +18,14 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// This Values is need for our singleton, so we have acces from everywhere
     /// </summary>
-    public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
-    /// <summary>
-    /// This button will be used 2 start the game
-    /// </summary>
-    public GameObject StartGameButton { get => m_StartGameButton; set => m_StartGameButton = value; }
-    public GameObject TestText { get => m_TestText; set => m_TestText = value; }
+    public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
+    /// <summary>
+    /// This button will be used 2 start the game
+    /// </summary>
+    public GameObject StartGameButton { get => m_StartGameButton; set => m_StartGameButton = value; }
+    public GameObject TestText { get => m_TestText; set => m_TestText = value; }
     #endregion Properties
-
+
     private void Awake()
     {
         //Creates Singleton
