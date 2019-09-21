@@ -38,8 +38,8 @@ public class UiManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        Crosshair = GameObject.Find("UiCorsshair");
-        TestText = GameObject.Find("TestText");
+        //Find UiElements
+        FindUiElements();
     }
 
     // Start is called before the first frame update
@@ -52,5 +52,12 @@ public class UiManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //Searches and sets UiElements
+    private void FindUiElements()
+    {
+        Crosshair = GameObject.Find("UiCorsshair");
+        TestText = GameObject.Find("TestText");
     }
 }

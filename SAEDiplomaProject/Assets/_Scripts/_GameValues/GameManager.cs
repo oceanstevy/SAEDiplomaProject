@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour
     private List<GameObject> m_Items;
     private List<GameObject> m_Events;
 
+    //Player Values
+    private Player m_Player;
+
     #endregion MemberVariables
     #region Properties
-
     /// <summary>
     /// List of Enemies in our Game
     /// </summary>
@@ -32,6 +34,10 @@ public class GameManager : MonoBehaviour
     /// This Values is need for our singleton, so we have acces from everywhere
     /// </summary>
     public static GameManager Instance { get => m_Instance; set => m_Instance = value; }
+    /// <summary>
+    /// Player Values like, health, ammo, etc
+    /// </summary>
+    public Player Player { get => m_Player; set => m_Player = value; }
 
     #endregion Properties
 
@@ -48,6 +54,19 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
+        //Initializes GameManagerValues
+        Initialize();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+       
+    }
+
+    // Find Events
+    private void Initialize()
+    {
         //Searches every Enemy
         if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
         {
@@ -65,11 +84,8 @@ public class GameManager : MonoBehaviour
         {
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
+        //Creates new Player
+        Player = new Player(100, 100, 0);
     }
 }
