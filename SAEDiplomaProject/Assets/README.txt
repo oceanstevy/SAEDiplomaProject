@@ -1,0 +1,1 @@
+If you create a new Scene import MainCamera and Scene Settings From "_HDRP" Folder into your Scene
