@@ -18,13 +18,12 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// This Values is need for our singleton, so we have acces from everywhere
     /// </summary>
-    public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
+    public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
     /// <summary>
     /// This is a TextExemple for will
-    /// </summary>
+    /// </summary>
     public GameObject TestText { get => m_TestText; set => m_TestText = value; }
-    #endregion Properties
-
+    #endregion Properties
     private void Awake()
     {
         //Creates Singleton
