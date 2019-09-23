@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> m_Enemies;
     private List<GameObject> m_Items;
     private List<GameObject> m_Events;
+    private List<IntercomValue> m_IntercomMassages;
 
     //Player Values
     private Player m_Player;
@@ -38,6 +40,10 @@ public class GameManager : MonoBehaviour
     /// Player Values like, health, ammo, etc
     /// </summary>
     public Player Player { get => m_Player; set => m_Player = value; }
+    /// <summary>
+    /// Collection of Intercom Messages
+    /// </summary>
+    public List<IntercomValue> IntercomMassages{ get => m_IntercomMassages; set => m_IntercomMassages = value; }
 
     #endregion Properties
 
@@ -87,5 +93,14 @@ public class GameManager : MonoBehaviour
 
         //Creates new Player
         Player = new Player(100, 100, 0);
+
+        // Fill Intercom Messages
+        GetIntercomMessages();
+    }
+
+    private void GetIntercomMessages()
+    {
+        // First Audio Clip
+        m_IntercomMassages.Add(new IntercomValue(Resources.Load<AudioClip>("_Audioclip/Audio01"), "Lohn isch da", Resources.Load<Image>("_Icons/Audio01")));
     }
 }

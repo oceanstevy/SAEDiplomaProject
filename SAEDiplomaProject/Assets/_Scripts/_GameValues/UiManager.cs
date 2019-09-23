@@ -9,6 +9,7 @@ public class UiManager : MonoBehaviour
     private static UiManager m_Instance;
     private GameObject m_StartGameButton;
     private GameObject m_TestText;
+    private GameObject m_Intercom;
     #endregion MemberVariables
     #region Properties
     /// <summary>
@@ -22,7 +23,12 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// This is a TextExemple for will
     /// </summary>
-    public GameObject TestText { get => m_TestText; set => m_TestText = value; }
+    public GameObject TestText { get => m_TestText; set => m_TestText = value; }
+    /// <summary>
+    /// Intercom UI
+    /// </summary>
+    public GameObject Intercom { get => m_Intercom; set => m_Intercom = value; }
+
     #endregion Properties
     private void Awake()
     {
