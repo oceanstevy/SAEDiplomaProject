@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         Rigidbody = GetComponentInChildren<Rigidbody>();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -50,14 +50,12 @@ public class Enemy : MonoBehaviour
     private void Movement()
     {
         // Find Player
-        if(FindPlayer())
+        if (FindPlayer())
         {
-            Position = GameManager.Instance.Character.transform.localPosition - transform.position;
 
-            Position = Position.normalized;
-            Position = Position * m_Movementspeed * Time.deltaTime;
+            Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(GameManager.Instance.Character.transform.localPosition - transform.position), 3 * Time.deltaTime);
 
-            transform.Translate(Position, Space.World);
+            transform.position += transform.forward * m_Movementspeed * Time.deltaTime;
         }
         else
         {
@@ -69,12 +67,7 @@ public class Enemy : MonoBehaviour
     // Find Player in Level
     private bool FindPlayer()
     {
-        float Player = Vector3.SqrMagnitude(GameManager.Instance.Character.transform.localPosition);
-        float Enemy = Vector3.SqrMagnitude(transform.position);
-
-        Debug.Log(Enemy - Player);
-
-        if(Enemy - Player <= 5)
+        if (Vector3.Distance(GameManager.Instance.Character.transform.localPosition, transform.position) <= 5)
         {
             return true;
         }
