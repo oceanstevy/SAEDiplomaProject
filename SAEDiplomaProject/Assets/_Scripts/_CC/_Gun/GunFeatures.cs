@@ -31,8 +31,21 @@ public class GunFeatures : MonoBehaviour
     //Default gun shot
     void DefaultGun()
     {
-        GameObject tmpBullet = Resources.Load<GameObject>("_Bullets/DefaultBullet");
-        Instantiate(tmpBullet, m_BulletSpawnPos.position, Quaternion.identity);
-        tmpBullet.gameObject.GetComponent<Bullet>().WeaponType = 1;
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject tmpBullet = Resources.Load<GameObject>("_Bullets/DefaultBullet");
+            tmpBullet.gameObject.GetComponent<Bullet>().EndPosition = hit.point;
+            tmpBullet.gameObject.GetComponent<Bullet>().WeaponType = 1;
+            Instantiate(tmpBullet, m_BulletSpawnPos.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject tmpBullet = Resources.Load<GameObject>("_Bullets/DefaultBullet");
+            tmpBullet.gameObject.GetComponent<Bullet>().EndPosition = ray.GetPoint(50);
+            tmpBullet.gameObject.GetComponent<Bullet>().WeaponType = 1;
+            Instantiate(tmpBullet, m_BulletSpawnPos.position, Quaternion.identity);
+        }
     }
 }

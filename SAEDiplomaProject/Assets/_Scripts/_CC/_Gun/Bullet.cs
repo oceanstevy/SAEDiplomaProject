@@ -5,9 +5,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     #region MemberVariables
-    private short m_WeaponType = 1;
+    [SerializeField] private short m_WeaponType;
     [SerializeField] private Vector3 m_EndPosition;
     [SerializeField] private Transform m_SpawnPoint;
+    private float m_ExpireTimer = 0.0f;
     #endregion MemberVariables
     #region Properties
     /// <summary>
@@ -42,10 +43,26 @@ public class Bullet : MonoBehaviour
 
     public void DefaultBulletMovement()
     {
-        GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 2000);
+        //Increase Decay time, so we can get a time for decay if we hit nothing
+        m_ExpireTimer += Time.deltaTime;
+        if (m_ExpireTimer > 3.0f)
+        {
+            Destroy(this.gameObject);
+        }
+        transform.position = Vector3.MoveTowards(transform.position, EndPosition, 50*Time.deltaTime);
+
+        //GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 2000);
     }
 
     private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag != "Player")
         {
