@@ -35,6 +35,9 @@ public class CCCamera : MonoBehaviour
 
     private void SetCameraPositionAndRotation()
     {
+        //Lock Camera in center
+        Screen.lockCursor = true;
+
         //Sets MousePos, so we can turn around the Object (Left, Right)
         m_MouseX += Input.GetAxis("Mouse X") * m_Sensitivity;
 
