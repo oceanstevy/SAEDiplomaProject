@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dumy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    #region MemberVirabels
+
+    #endregion MemberVirabels
+
+    #region Properties
+
+    #endregion Properties
+
     // Start is called before the first frame update
     void Start()
     {
