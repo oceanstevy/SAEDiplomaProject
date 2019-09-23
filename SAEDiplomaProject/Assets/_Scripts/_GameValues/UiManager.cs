@@ -13,11 +13,11 @@ public class UiManager : MonoBehaviour
     #endregion MemberVariables
     #region Properties
     /// <summary>
-    /// this is the Corsshair we're aiming with
+    /// This is the Crosshair we're aiming with
     /// </summary>
     public GameObject Crosshair { get => m_Crosshair; set => m_Crosshair = value; }
     /// <summary>
-    /// This Values is need for our singleton, so we have acces from everywhere
+    /// These Values are needed for our singleton, so we have access from everywhere
     /// </summary>
     public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
     /// <summary>
@@ -29,7 +29,7 @@ public class UiManager : MonoBehaviour
     /// </summary>
     public GameObject Intercom { get => m_Intercom; set => m_Intercom = value; }
 
-    #endregion Properties
+    #endregion Properties
     private void Awake()
     {
         //Creates Singleton
