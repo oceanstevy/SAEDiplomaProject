@@ -9,23 +9,25 @@ public class UiManager : MonoBehaviour
     private static UiManager m_Instance;
     private GameObject m_StartGameButton;
     private GameObject m_TestText;
+    private GameObject m_MenuPanel;
+    private GameObject m_HelpPanel;
+    private GameObject m_CreditsPanel;
+    private GameObject m_OptionsPanel;
     #endregion MemberVariables
     #region Properties
     /// <summary>
-    /// this is the Corsshair we're aiming with
+    /// This is the Crosshair we're aiming with
     /// </summary>
     public GameObject Crosshair { get => m_Crosshair; set => m_Crosshair = value; }
     /// <summary>
-    /// This Values is need for our singleton, so we have acces from everywhere
+    /// These Values are needed for our singleton, so we have access from everywhere
     /// </summary>
-    public static UiManager Instance { get => m_Instance; set => m_Instance = value; }
-    /// <summary>
-    /// This button will be used 2 start the game
-    /// </summary>
-    public GameObject StartGameButton { get => m_StartGameButton; set => m_StartGameButton = value; }
-    public GameObject TestText { get => m_TestText; set => m_TestText = value; }
+    public static UiManager Instance { get => m_Instance; set => m_Instance = value; }    public GameObject TestText { get => m_TestText; set => m_TestText = value; }
+
+
     #endregion Properties
-
+
+
     private void Awake()
     {
         //Creates Singleton
@@ -52,4 +54,5 @@ public class UiManager : MonoBehaviour
     {
         
     }
+
 }
