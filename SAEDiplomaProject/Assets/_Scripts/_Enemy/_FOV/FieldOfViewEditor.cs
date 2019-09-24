@@ -11,19 +11,23 @@ public class FieldOfViewEditor : Editor
 {
     private void OnSceneGUI()
     {
-        FieldOfView FOV = (FieldOfView)target;
+        FieldOfView fow = (FieldOfView)target;
         Handles.color = Color.white;
-        Handles.DrawWireArc(FOV.transform.position, Vector3.up, Vector3.forward, 360, FOV.m_ViewAngle);
-        Vector3 ViewAngleA = FOV.DirFromAngle(-FOV.m_ViewAngle / 2, false);
-        Vector3 ViewAngleB = FOV.DirFromAngle(FOV.m_ViewAngle / 2, false);
+        Handles.DrawWireArc(fow.transform.position,
+                            Vector3.up,
+                            Vector3.forward, 360, fow.m_ViewRadius);
+        Vector3 viewAngleA = fow.DirFromAngle(-fow.m_ViewAngle / 2, false);
+        Vector3 viewAngleB = fow.DirFromAngle(fow.m_ViewAngle / 2, false);
 
-        Handles.DrawLine(FOV.transform.position, FOV.transform.position + ViewAngleA * FOV.m_ViewRadius);
-        Handles.DrawLine(FOV.transform.position, FOV.transform.position + ViewAngleB * FOV.m_ViewRadius);
+        Handles.DrawLine(fow.transform.position,
+                         fow.transform.position + viewAngleA * fow.m_ViewRadius);
+        Handles.DrawLine(fow.transform.position,
+                         fow.transform.position + viewAngleB * fow.m_ViewRadius);
 
         Handles.color = Color.red;
-        foreach (Transform VisibleTargets in FOV.m_VisibleTargets)
+        foreach (Transform visibleTarget in fow.m_VisibleTargets)
         {
-            Handles.DrawLine(FOV.transform.position, VisibleTargets.transform.position);
+            Handles.DrawLine(fow.transform.position, visibleTarget.transform.position);
         }
     }
 }

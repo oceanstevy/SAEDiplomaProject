@@ -10,7 +10,7 @@ public class FieldOfView : MonoBehaviour
 
     [Range(0, 360)]
     // View Angle from Enemy, between 0 and 360
-    public float m_ViewAngle = 115.0f;
+    public float m_ViewAngle;
 
     // Mask the Enemy should look for
     public LayerMask m_TargetMask;
@@ -41,24 +41,30 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    private void FindVisibleTarget()
+    public void FindVisibleTarget()
     {
+        // Clear List
         m_VisibleTargets.Clear();
 
-        Collider[] TargetinViewRadius = Physics.OverlapSphere(transform.position, m_ViewRadius, m_TargetMask);
-
-        for (int i = 0; i < TargetinViewRadius.Length; ++i)
+        // Targets in view Radius
+        Collider[] targetinViewRadius = Physics.OverlapSphere(transform.position,
+                                                              m_ViewRadius,
+                                                              m_TargetMask);
+        // for every Target in Collider Array
+        for (int i = 0; i < targetinViewRadius.Length; i++)
         {
-            Transform Target = TargetinViewRadius[i].transform;
-            Vector3 DirToTarget = (Target.position - transform.position).normalized;
+            Transform target = targetinViewRadius[i].transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, DirToTarget) < m_ViewAngle / 2)
+            if (Vector3.Angle(transform.forward, dirToTarget) < m_ViewAngle / 2)
             {
-                float DistantToTarget = Vector3.Distance(transform.position, Target.position);
+                float distantToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, DirToTarget, DistantToTarget, m_ObstacleMask))
+                // if no Obstacle in View
+                if (!Physics.Raycast(transform.position, dirToTarget, distantToTarget, m_ObstacleMask))
                 {
-                    m_VisibleTargets.Add(Target);
+                    // Target is visible and add to visibleTarget List
+                    m_VisibleTargets.Add(target);
                 }
             }
         }
