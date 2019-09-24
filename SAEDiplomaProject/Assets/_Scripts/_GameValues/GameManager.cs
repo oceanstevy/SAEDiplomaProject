@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     private List<GameObject> m_Enemies = new List<GameObject>();
     private List<GameObject> m_Items;
     private List<GameObject> m_Events;
-    private List<IntercomValue> m_IntercomMassages;
+    [SerializeField]private List<IntercomValue> m_IntercomMassages;
+    private List<GameObject> m_Doors;
 
     //Player Values
     private Player m_Player;
@@ -44,6 +45,10 @@ public class GameManager : MonoBehaviour
     /// Collection of Intercom Messages
     /// </summary>
     public List<IntercomValue> IntercomMassages{ get => m_IntercomMassages; set => m_IntercomMassages = value; }
+    /// <summary>
+    /// Loads all doors of scene
+    /// </summary>
+    public List<GameObject> Doors { get => m_Doors; set => m_Doors = value; }
     /// <summary>
     /// Position of Player
     /// </summary>
@@ -78,21 +83,31 @@ public class GameManager : MonoBehaviour
     private void Initialize()
     {
         //Searches every Enemy
+        m_Enemies = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
         {
             m_Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         }
 
         //Searches every Item
+        m_Items = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Item").Length > 0)
         {
             m_Items.AddRange(GameObject.FindGameObjectsWithTag("Item"));
         }
 
         //Searches every Event
+        m_Events = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Event").Length > 0)
         {
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
+        }
+
+        //Searches every Door
+        m_Doors = new List<GameObject>();
+        if (GameObject.FindGameObjectsWithTag("Door").Length > 0)
+        {
+            m_Doors.AddRange(GameObject.FindGameObjectsWithTag("Door"));
         }
 
         m_Character = GameObject.FindGameObjectWithTag("Player");
@@ -106,7 +121,9 @@ public class GameManager : MonoBehaviour
 
     private void GetIntercomMessages()
     {
+        IntercomMassages = new List<IntercomValue>();
         // First Audio Clip
-        //m_IntercomMassages.Add(new IntercomValue(Resources.Load<AudioClip>("_Audioclip/Audio01"), "Lohn isch da", Resources.Load<Image>("_Icons/Audio01")));
+        IntercomMassages.Add(new IntercomValue((AudioClip)Resources.Load("_Audioclip/Audio02"), "Anruf von Korrekte Typ", Resources.Load<Sprite>("_Icons/Audio01")));
+        Debug.Log(IntercomMassages[0]);
     }
 }
