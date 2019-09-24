@@ -27,7 +27,7 @@ public class Explosion : MonoBehaviour
         {
             if (transform.localScale.x < 4.0f && m_CanShrink == false)
             {
-                transform.localScale += new Vector3(Time.deltaTime * 3, Time.deltaTime * 3, Time.deltaTime * 3);
+                transform.localScale += new Vector3(Time.deltaTime * 10, Time.deltaTime * 10, Time.deltaTime * 10);
             }
             else if (transform.localScale.x <= -5.0f && m_CanShrink)
             {
@@ -45,7 +45,7 @@ public class Explosion : MonoBehaviour
             else
             {
                 m_CanShrink = true;
-                transform.localScale -= new Vector3(Time.deltaTime * 10, Time.deltaTime * 10, Time.deltaTime * 10);
+                transform.localScale -= new Vector3(Time.deltaTime * 17, Time.deltaTime * 17, Time.deltaTime * 17);
                 int i = 0;
                 while (i < m_Colliders.Length)
                 {
@@ -59,7 +59,7 @@ public class Explosion : MonoBehaviour
         }
         else
         {
-            transform.localScale += new Vector3(Time.deltaTime * 4, Time.deltaTime * 4, Time.deltaTime * 4);
+            transform.localScale += new Vector3(Time.deltaTime * 11, Time.deltaTime * 11, Time.deltaTime * 11);
             if (transform.localScale.x >= 0.0f)
             {
                 Destroy(this.gameObject);
