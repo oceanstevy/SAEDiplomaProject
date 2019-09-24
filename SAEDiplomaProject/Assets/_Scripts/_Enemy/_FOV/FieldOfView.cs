@@ -18,7 +18,7 @@ public class FieldOfView : MonoBehaviour
     public List<Transform> m_VisibleTargets;
     // if Enemy sees target
     [HideInInspector]
-    public bool HitsTarget = false;
+    public bool SeeTarget;
     #endregion Virables
 
 
@@ -43,6 +43,9 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Find Visible Target
+    /// </summary>
     public void FindVisibleTarget()
     {
         // Clear List
@@ -55,24 +58,29 @@ public class FieldOfView : MonoBehaviour
         // for every Target in Collider Array
         for (int i = 0; i < targetinViewRadius.Length; i++)
         {
-            Transform target = targetinViewRadius[i].transform;
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            // Current Target in Radius
+            Transform Target = targetinViewRadius[i].transform;
+            // Direction to Target
+            Vector3 DirToTarget = (Target.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, dirToTarget) < m_ViewAngle / 2)
+            // If the Target is between the View Angle
+            if (Vector3.Angle(transform.forward, DirToTarget) < m_ViewAngle / 2)
             {
-                float distantToTarget = Vector3.Distance(transform.position, target.position);
+                // Distant to seen Target
+                float DistantToTarget = Vector3.Distance(transform.position, Target.position);
 
                 // if no Obstacle in View
-                if (!Physics.Raycast(transform.position, dirToTarget, distantToTarget, m_ObstacleMask) && target.tag == "Player")
+                if (!Physics.Raycast(transform.position, DirToTarget, DistantToTarget, m_ObstacleMask) && Target.tag == "Player")
                 {
-                    HitsTarget = true;
                     // Target is visible and add to visibleTarget List
-                    m_VisibleTargets.Add(target);
+                    m_VisibleTargets.Add(Target);
+                    SeeTarget = true;
                 }
             }
             else
             {
-                HitsTarget = false;
+                // Players not Visible set False
+                SeeTarget = false;
             }
         }
     }

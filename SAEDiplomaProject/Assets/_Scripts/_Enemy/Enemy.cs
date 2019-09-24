@@ -36,59 +36,69 @@ public class Enemy : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Transform[] m_Waypoints;
-
+    // Current Waypoint
     private int CurrentWaypoint;
-
+    // Enemy FieldOfView
     private FieldOfView FoV;
-
+    // if Enemy is Going Forward
     private bool GoingForward = false;
     #endregion PrivateVariables
+
+    private void Awake()
+    {
+        // Get the FieldOfView Component
+        FoV = GetComponent<FieldOfView>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        FoV = new FieldOfView();
         Rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(FoV.HitsTarget);
-        //Debug.Log(GameManager.Instance.Character.transform.position);
         // Move Enemy
         Movement();
     }
 
-    // Movement 
+    // Enemy Movement
     private void Movement()
     {
-        // Find Player
-        if (FoV.HitsTarget)
+        // If target seen
+        if (FoV.SeeTarget)
         {
+            // Direction from Player to Enemy Postion
             Vector3 Dir = GameManager.Instance.Character.transform.position - transform.position;
 
             Dir = Dir.normalized;
             Dir = Dir * Time.deltaTime * m_Movementspeed;
 
+            // Move to Player
             transform.Translate(Dir, Space.World);
             transform.forward = Vector3.RotateTowards(transform.forward, Dir.normalized, Mathf.PI * Time.deltaTime, 0);
         }
-        else
+        // else if target not seen
+        else if(!FoV.SeeTarget)
         {
-            Vector3 Direction = m_Waypoints[CurrentWaypoint].position - transform.position;
+            // Current Waypoint Postion from own Postition
+            Vector3 dir = m_Waypoints[CurrentWaypoint].position - transform.position;
 
-            Direction = Direction.normalized;
-            Direction = Direction * Time.deltaTime * m_Movementspeed;
-            if (Direction.magnitude > Vector3.Distance(m_Waypoints[CurrentWaypoint].position, transform.position))
+            dir = dir.normalized;
+            dir = dir * Time.deltaTime * m_Movementspeed;
+            if (dir.magnitude > Vector3.Distance(m_Waypoints[CurrentWaypoint].position, transform.position))
             {
+                // Modulo hilft hier um kein out of range zu bekommen
                 CurrentWaypoint = (CurrentWaypoint +
                                         (GoingForward ? 1 : -1) +
                                         m_Waypoints.Length)
                                 % m_Waypoints.Length;
             }
-            transform.Translate(Direction, Space.World);
-            transform.forward = Vector3.RotateTowards(transform.forward, Direction.normalized, Mathf.PI * Time.deltaTime, 0);
+
+            // Move to Waypoint
+            transform.Translate(dir, Space.World);
+            transform.forward = Vector3.RotateTowards(transform.forward, dir.normalized, Mathf.PI * Time.deltaTime, 0);
         }
     }
 }
