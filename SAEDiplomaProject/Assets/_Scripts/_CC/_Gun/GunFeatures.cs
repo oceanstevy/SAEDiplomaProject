@@ -35,8 +35,8 @@ public class GunFeatures : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //FireBullet(1, "DefaultBullet");
-            FireBullet(2, "GrenadeBullet");
-            //FireStase();
+            //FireBullet(2, "GrenadeBullet");
+            FireStase();
         }
     }
 
@@ -68,7 +68,6 @@ public class GunFeatures : MonoBehaviour
     //Fire Stase
     private void FireStase()
     {
-        Debug.Log(m_StasePushForce);
         if (!m_IsStaseActive)
         {
             m_IsStaseActive = true;
