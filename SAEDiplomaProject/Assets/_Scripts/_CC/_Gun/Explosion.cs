@@ -16,8 +16,7 @@ public class Explosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_ExplosionPos = transform.position;
-        m_Colliders = Physics.OverlapSphere(m_ExplosionPos, m_Radius);
+        
     }
 
     // Update is called once per frame
@@ -32,12 +31,17 @@ public class Explosion : MonoBehaviour
             else if (transform.localScale.x <= -5.0f && m_CanShrink)
             {
                 m_CanKill = true;
+                m_ExplosionPos = transform.position;
+                m_Colliders = Physics.OverlapSphere(m_ExplosionPos, m_Radius);
                 int i = 0;
                 while (i < m_Colliders.Length)
                 {
-                    if (m_Colliders[i].gameObject.GetComponent<Rigidbody>() != null && m_Colliders[i].gameObject.tag != "Player")
+                    if (m_Colliders[i].gameObject.GetComponent<Rigidbody>() != null)
                     {
-                        m_Colliders[i].gameObject.GetComponent<Rigidbody>().AddForce((m_Colliders[i].gameObject.transform.position - gameObject.transform.position) * m_ExplosionForce * 4);
+                        if (m_Colliders[i].gameObject.tag != "Player")
+                        {
+                            m_Colliders[i].gameObject.GetComponent<Rigidbody>().AddForce((m_Colliders[i].gameObject.transform.position - gameObject.transform.position) * m_ExplosionForce * 4);
+                        }
                     }
                     i++;
                 }
@@ -45,13 +49,18 @@ public class Explosion : MonoBehaviour
             else
             {
                 m_CanShrink = true;
+                m_ExplosionPos = transform.position;
+                m_Colliders = Physics.OverlapSphere(m_ExplosionPos, m_Radius);
                 transform.localScale -= new Vector3(Time.deltaTime * 17, Time.deltaTime * 17, Time.deltaTime * 17);
                 int i = 0;
                 while (i < m_Colliders.Length)
                 {
-                    if (m_Colliders[i].gameObject.GetComponent<Rigidbody>() != null && m_Colliders[i].gameObject.tag != "Player")
+                    if (m_Colliders[i].gameObject.GetComponent<Rigidbody>() != null)
                     {
-                        m_Colliders[i].gameObject.transform.position = Vector3.MoveTowards(m_Colliders[i].gameObject.transform.position, transform.position, m_PullForce*Time.deltaTime);
+                        if (m_Colliders[i].gameObject.tag != "Player")
+                        {
+                            m_Colliders[i].gameObject.transform.position = Vector3.MoveTowards(m_Colliders[i].gameObject.transform.position, transform.position, m_PullForce * Time.deltaTime);
+                        }
                     }
                     i++;
                 }
