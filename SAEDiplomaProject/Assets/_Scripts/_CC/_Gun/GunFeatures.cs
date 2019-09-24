@@ -35,8 +35,8 @@ public class GunFeatures : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //FireBullet(1, "DefaultBullet");
-            FireBullet(2, "GrenadeBullet");
-            //FireStase();
+            //FireBullet(2, "GrenadeBullet");
+            FireStase();
         }
     }
 
@@ -68,7 +68,6 @@ public class GunFeatures : MonoBehaviour
     //Fire Stase
     private void FireStase()
     {
-        Debug.Log(m_StasePushForce);
         if (!m_IsStaseActive)
         {
             m_IsStaseActive = true;
@@ -100,7 +99,7 @@ public class GunFeatures : MonoBehaviour
         }
         else
         {
-            m_StaseObject.transform.position =  Vector3.MoveTowards(m_StaseObject.transform.position, m_BulletSpawnPos.position, 80);
+            m_StaseObject.transform.position =  Vector3.MoveTowards(m_StaseObject.transform.position, m_BulletSpawnPos.position, m_StasePushForce*Time.deltaTime);
         }
         
     }
@@ -127,6 +126,5 @@ public class GunFeatures : MonoBehaviour
         {
             m_TimeBetweenShot = 0.5f;
         }
-        
     }
 }
