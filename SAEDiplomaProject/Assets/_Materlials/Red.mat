@@ -10,7 +10,7 @@ Material:
   m_Name: Red
   m_Shader: {fileID: -6465566751694194690, guid: 31ff00575239c564a8b373671e0c0888,
     type: 3}
-  m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -233,7 +233,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_344790BD: {r: 0.9339623, g: 0.25992346, b: 0.25992346, a: 0}
+    - Color_344790BD: {r: 0.9339623, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 0, b: 0, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 0, b: 0, a: 1}
