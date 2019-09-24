@@ -79,27 +79,32 @@ public class GameManager : MonoBehaviour
     private void Initialize()
     {
         //Searches every Enemy
+        m_Enemies = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
         {
             m_Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         }
 
         //Searches every Item
+        m_Items = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Item").Length > 0)
         {
             m_Items.AddRange(GameObject.FindGameObjectsWithTag("Item"));
         }
 
         //Searches every Event
+        m_Events = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Event").Length > 0)
         {
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
 
-        //Searches every Event
-        if (GameObject.FindGameObjectsWithTag("Doors").Length > 0)
+
+        //Searches every Door
+        m_Doors = new List<GameObject>();
+        if (GameObject.FindGameObjectsWithTag("Door").Length > 0)
         {
-            m_Events.AddRange(GameObject.FindGameObjectsWithTag("Doors"));
+            m_Doors.AddRange(GameObject.FindGameObjectsWithTag("Door"));
         }
 
         //Creates new Player
