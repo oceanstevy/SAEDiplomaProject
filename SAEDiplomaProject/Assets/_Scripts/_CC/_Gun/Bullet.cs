@@ -7,7 +7,8 @@ public class Bullet : MonoBehaviour
     #region MemberVariables
     [SerializeField] private short m_WeaponType;
     [SerializeField] private Vector3 m_EndPosition;
-    [SerializeField] private Transform m_SpawnPoint;
+    [SerializeField] private int m_DefaultBulletSpeed;
+    private int m_GrenadePushForce;
     private float m_ExpireTimer = 0.0f;
     #endregion MemberVariables
     #region Properties
@@ -19,6 +20,10 @@ public class Bullet : MonoBehaviour
     /// Position where the Bullet will land
     /// </summary>
     public Vector3 EndPosition { get => m_EndPosition; set => m_EndPosition = value; }
+    /// <summary>
+    /// Force with which the grenade will be fired
+    /// </summary>
+    public int GrenadePushForce { get => m_GrenadePushForce; set => m_GrenadePushForce = value; }
     #endregion Properties
 
     // Start is called before the first frame update
@@ -36,12 +41,14 @@ public class Bullet : MonoBehaviour
                 DefaultBulletMovement();
                 break;
             case 2:
-                Debug.Log("test");
+                GrenadeShot();
                 break;
         }
     }
 
-    public void DefaultBulletMovement()
+
+    //Deault Gunshot
+    private void DefaultBulletMovement()
     {
         //Increase Decay time, so we can get a time for decay if we hit nothing
         m_ExpireTimer += Time.deltaTime;
@@ -49,9 +56,17 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        transform.position = Vector3.MoveTowards(transform.position, EndPosition, 50*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, EndPosition, m_DefaultBulletSpeed * Time.deltaTime);
+    }
 
-        //GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 2000);
+    //Granade Gunshot
+    private void GrenadeShot()
+    {
+        //Increase Decay time, so we can get a time for decay if we hit nothing
+        m_ExpireTimer += Time.deltaTime;
+
+        GetComponent<Rigidbody>().AddForce((EndPosition - transform.position)* m_GrenadePushForce * Time.deltaTime);
+        WeaponType = 0;
     }
 
     private void OnCollisionEnter(Collision collision)
