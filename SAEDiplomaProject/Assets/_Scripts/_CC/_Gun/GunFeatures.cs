@@ -36,7 +36,8 @@ public class GunFeatures : MonoBehaviour
         {
             //FireBullet(1, "DefaultBullet");
             //FireBullet(2, "GrenadeBullet");
-            FireStase();
+            FireBullet(3, "Welding");
+            //FireStase();
         }
     }
 
@@ -89,10 +90,13 @@ public class GunFeatures : MonoBehaviour
             {
                 if (hit.distance < m_MaxStaseDistace)
                 {
-                    m_StaseObject = hit.rigidbody.gameObject;
-                    if (m_StaseObject != null)
+                    if (hit.rigidbody != null)
                     {
-                        m_StaseObject.GetComponent<Rigidbody>().useGravity = false;
+                        m_StaseObject = hit.rigidbody.gameObject;
+                        if (m_StaseObject != null)
+                        {
+                            m_StaseObject.GetComponent<Rigidbody>().useGravity = false;
+                        }
                     }
                 }
             }
@@ -110,10 +114,13 @@ public class GunFeatures : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         Vector3 EndPos;
         EndPos = new Vector3(ray.GetPoint(50).x, ray.GetPoint(50).y, ray.GetPoint(50).z);
-        m_StaseObject.GetComponent<Rigidbody>().AddForce((EndPos - m_StaseObject.transform.position) * m_StasePushForce);
-        m_StaseObject.GetComponent<Rigidbody>().useGravity = true;
-        m_StaseObject = null;
-        m_IsStaseActive = false;
+        if (m_StaseObject != null)
+        {
+            m_StaseObject.GetComponent<Rigidbody>().AddForce((EndPos - m_StaseObject.transform.position) * m_StasePushForce);
+            m_StaseObject.GetComponent<Rigidbody>().useGravity = true;
+            m_StaseObject = null;
+            m_IsStaseActive = false;
+        }
     }
 
     private void ShootTimer()
