@@ -63,7 +63,7 @@ public class Bullet : MonoBehaviour
         {
             if (this.gameObject.name == "GrenadeBullet(Clone)")
             {
-                GameObject tmp = Instantiate(Resources.Load<GameObject>("_Effects/Explosion"),this.transform.position, Quaternion.identity);
+                Instantiate(Resources.Load<GameObject>("_Effects/Explosion"),this.transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
             else
