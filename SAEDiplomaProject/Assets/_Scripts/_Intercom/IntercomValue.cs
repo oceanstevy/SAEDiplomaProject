@@ -91,6 +91,7 @@ public class IntercomValue : MonoBehaviour
         //To Test the Call
         if (Input.GetKeyDown("space") && m_Incoming == false && m_Isvoiceon == false && m_Callended == false)
         {
+            Debug.Log("Test");
             IncomingCall(GameManager.Instance.IntercomMassages[0]);
         }
 

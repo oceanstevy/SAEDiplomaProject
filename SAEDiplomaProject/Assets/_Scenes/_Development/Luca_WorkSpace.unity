@@ -872,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 232557ca9c10f494eab41730c3193ae9, type: 3}
---- !u!114 &1496433922
+--- !u!114 &1528059652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -970,7 +970,7 @@ PrefabInstance:
     - target: {fileID: 3869846118464021873, guid: c2554b4e39878f543b4532ac309d3cfe,
         type: 3}
       propertyPath: m_Name
-      value: Intercom
+      value: IntercomManager
       objectReference: {fileID: 0}
     - target: {fileID: 3869846118464021870, guid: c2554b4e39878f543b4532ac309d3cfe,
         type: 3}
