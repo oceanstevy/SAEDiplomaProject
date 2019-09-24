@@ -118,6 +118,5 @@ public class GameManager : MonoBehaviour
         IntercomMassages = new List<IntercomValue>();
         // First Audio Clip
         IntercomMassages.Add(new IntercomValue((AudioClip)Resources.Load("_Audioclip/Audio02"), "Anruf von Korrekte Typ", Resources.Load<Sprite>("_Icons/Audio01")));
-        Debug.Log(IntercomMassages[0]);
     }
 }
