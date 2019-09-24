@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> m_Enemies;
     private List<GameObject> m_Items;
     private List<GameObject> m_Events;
-    private List<IntercomValue> m_IntercomMassages;
+    [SerializeField]private List<IntercomValue> m_IntercomMassages;
     private List<GameObject> m_Doors;
 
     //Player Values
@@ -99,7 +99,6 @@ public class GameManager : MonoBehaviour
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
 
-
         //Searches every Door
         m_Doors = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Door").Length > 0)
@@ -119,8 +118,6 @@ public class GameManager : MonoBehaviour
         IntercomMassages = new List<IntercomValue>();
         // First Audio Clip
         IntercomMassages.Add(new IntercomValue((AudioClip)Resources.Load("_Audioclip/Audio02"), "Anruf von Korrekte Typ", Resources.Load<Sprite>("_Icons/Audio01")));
-        
-
-
+        Debug.Log(IntercomMassages[0]);
     }
 }
