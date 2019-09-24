@@ -8,7 +8,6 @@ public class GunFeatures : MonoBehaviour
     [SerializeField] private Transform m_BulletSpawnPos;
     [SerializeField] private int m_MaxStaseDistace;
     [SerializeField] private int m_StasePushForce;
-    [SerializeField] private int m_GranadePushForce;
     private float m_TimeBetweenShot = 0.0f;
     private bool m_IsStaseActive = false;
     private GameObject m_StaseObject;
@@ -35,12 +34,10 @@ public class GunFeatures : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            FireBullet(1, "DefaultBullet");
-            //FireBullet(2, "GrenadeBullet");
+            //FireBullet(1, "DefaultBullet");
+            FireBullet(2, "GrenadeBullet");
             //FireStase();
         }
-
-
     }
 
     //Default gun shot
@@ -56,7 +53,6 @@ public class GunFeatures : MonoBehaviour
                 GameObject tmpBullet = Resources.Load<GameObject>("_Bullets/" + name);
                 tmpBullet.gameObject.GetComponent<Bullet>().EndPosition = hit.point;
                 tmpBullet.gameObject.GetComponent<Bullet>().WeaponType = type;
-                tmpBullet.gameObject.GetComponent<Bullet>().GrenadePushForce = m_GranadePushForce;
                 Instantiate(tmpBullet, m_BulletSpawnPos.position, this.transform.rotation);
             }
             else
@@ -64,7 +60,6 @@ public class GunFeatures : MonoBehaviour
                 GameObject tmpBullet = Resources.Load<GameObject>("_Bullets/" + name);
                 tmpBullet.gameObject.GetComponent<Bullet>().EndPosition = ray.GetPoint(50);
                 tmpBullet.gameObject.GetComponent<Bullet>().WeaponType = type;
-                tmpBullet.gameObject.GetComponent<Bullet>().GrenadePushForce = m_GranadePushForce;
                 Instantiate(tmpBullet, m_BulletSpawnPos.position, Quaternion.identity);
             }
         }
@@ -73,6 +68,7 @@ public class GunFeatures : MonoBehaviour
     //Fire Stase
     private void FireStase()
     {
+        Debug.Log(m_StasePushForce);
         if (!m_IsStaseActive)
         {
             m_IsStaseActive = true;
@@ -104,7 +100,7 @@ public class GunFeatures : MonoBehaviour
         }
         else
         {
-            m_StaseObject.transform.position =  Vector3.MoveTowards(m_StaseObject.transform.position, m_BulletSpawnPos.position, 80 * Time.deltaTime);
+            m_StaseObject.transform.position =  Vector3.MoveTowards(m_StaseObject.transform.position, m_BulletSpawnPos.position, 80);
         }
         
     }
@@ -115,7 +111,7 @@ public class GunFeatures : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         Vector3 EndPos;
         EndPos = new Vector3(ray.GetPoint(50).x, ray.GetPoint(50).y, ray.GetPoint(50).z);
-        m_StaseObject.GetComponent<Rigidbody>().AddForce((EndPos - m_StaseObject.transform.position) * m_StasePushForce * Time.deltaTime);
+        m_StaseObject.GetComponent<Rigidbody>().AddForce((EndPos - m_StaseObject.transform.position) * m_StasePushForce);
         m_StaseObject.GetComponent<Rigidbody>().useGravity = true;
         m_StaseObject = null;
         m_IsStaseActive = false;
