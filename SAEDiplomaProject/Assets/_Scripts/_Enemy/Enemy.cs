@@ -31,6 +31,11 @@ public class Enemy : MonoBehaviour
     /// Enemy Movementspeed
     /// </summary>
     private int m_Movementspeed = 10;
+    /// <summary>
+    /// Idle Waypoints for Enemy
+    /// </summary>
+    [SerializeField]
+    private Transform[] m_Waypoints;
     #endregion PrivateVariables
 
     // Start is called before the first frame update
@@ -52,14 +57,11 @@ public class Enemy : MonoBehaviour
         // Find Player
         if (FindPlayer())
         {
-
-            Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(GameManager.Instance.Character.transform.localPosition - transform.position), 3 * Time.deltaTime);
-
             transform.position += transform.forward * m_Movementspeed * Time.deltaTime;
         }
         else
         {
-
+            
         }
 
     }
