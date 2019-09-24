@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     private static GameManager m_Instance;
 
     //Overworld Values
-    private List<GameObject> m_Enemies;
+    private List<GameObject> m_Enemies = new List<GameObject>();
     private List<GameObject> m_Items;
     private List<GameObject> m_Events;
     private List<IntercomValue> m_IntercomMassages;
 
     //Player Values
     private Player m_Player;
-
+    private GameObject m_Character;
     #endregion MemberVariables
     #region Properties
     /// <summary>
@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
     /// Collection of Intercom Messages
     /// </summary>
     public List<IntercomValue> IntercomMassages{ get => m_IntercomMassages; set => m_IntercomMassages = value; }
+    /// <summary>
+    /// Position of Player
+    /// </summary>
+    public GameObject Character { get => m_Character; set => m_Character = value; }
 
     #endregion Properties
 
@@ -91,6 +95,8 @@ public class GameManager : MonoBehaviour
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
 
+        m_Character = GameObject.FindGameObjectWithTag("Player");
+
         //Creates new Player
         Player = new Player(100, 100, 0);
 
@@ -101,6 +107,6 @@ public class GameManager : MonoBehaviour
     private void GetIntercomMessages()
     {
         // First Audio Clip
-        m_IntercomMassages.Add(new IntercomValue(Resources.Load<AudioClip>("_Audioclip/Audio01"), "Lohn isch da", Resources.Load<Image>("_Icons/Audio01")));
+        //m_IntercomMassages.Add(new IntercomValue(Resources.Load<AudioClip>("_Audioclip/Audio01"), "Lohn isch da", Resources.Load<Image>("_Icons/Audio01")));
     }
 }
