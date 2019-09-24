@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    #region MemberVirables
+    #region Virables
     // View Radius from Enemy
     public float m_ViewRadius = 5.0f;
-
     [Range(0, 360)]
     // View Angle from Enemy, between 0 and 360
     public float m_ViewAngle;
-
     // Mask the Enemy should look for
     public LayerMask m_TargetMask;
-
     // Obstacle Mask, that could be between Enemey and Target
     public LayerMask m_ObstacleMask;
     // Target List from all Visible Targets
-    public List<Transform> m_VisibleTargets = new List<Transform>();
-    #endregion MemberVirables
+    public List<Transform> m_VisibleTargets;
+    // if Enemy sees target
+    [HideInInspector]
+    public bool HitsTarget = false;
+    #endregion Virables
+
 
     // Start is called before the first frame update
     void Start()
     {
+        m_VisibleTargets = new List<Transform>();
         // Find Targets with 0.2 seconds Delay
         StartCoroutine("FindTargetsWithDelay", 0.2f);
     }
@@ -61,11 +63,16 @@ public class FieldOfView : MonoBehaviour
                 float distantToTarget = Vector3.Distance(transform.position, target.position);
 
                 // if no Obstacle in View
-                if (!Physics.Raycast(transform.position, dirToTarget, distantToTarget, m_ObstacleMask))
+                if (!Physics.Raycast(transform.position, dirToTarget, distantToTarget, m_ObstacleMask) && target.tag == "Player")
                 {
+                    HitsTarget = true;
                     // Target is visible and add to visibleTarget List
                     m_VisibleTargets.Add(target);
                 }
+            }
+            else
+            {
+                HitsTarget = false;
             }
         }
     }

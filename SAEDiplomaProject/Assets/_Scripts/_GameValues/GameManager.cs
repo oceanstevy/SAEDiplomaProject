@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private static GameManager m_Instance;
 
     //Overworld Values
-    private List<GameObject> m_Enemies;
+    private List<GameObject> m_Enemies = new List<GameObject>();
     private List<GameObject> m_Items;
     private List<GameObject> m_Events;
     private List<IntercomValue> m_IntercomMassages;

@@ -36,17 +36,24 @@ public class Enemy : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Transform[] m_Waypoints;
+
+    private int CurrentWaypoint;
+
+    private FieldOfView FoV;
     #endregion PrivateVariables
 
     // Start is called before the first frame update
     void Start()
     {
-        Rigidbody = GetComponentInChildren<Rigidbody>();
+        FoV = new FieldOfView();
+        Rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(FoV.HitsTarget);
+        //Debug.Log(GameManager.Instance.Character.transform.position);
         // Move Enemy
         Movement();
     }
@@ -55,25 +62,35 @@ public class Enemy : MonoBehaviour
     private void Movement()
     {
         // Find Player
-        if (FindPlayer())
+        if (FoV.HitsTarget)
         {
-            transform.position += transform.forward * m_Movementspeed * Time.deltaTime;
+            Vector3 Dir = GameManager.Instance.Character.transform.position - transform.position;
+
+            Dir = Dir.normalized;
+            Dir = Dir * Time.deltaTime * m_Movementspeed;
+
+            // Im Standard nutzen wir den lokalen Space bei Transform.Translate
+            transform.Translate(Dir, Space.World);
+            transform.forward = Vector3.RotateTowards(transform.forward, Dir.normalized, Mathf.PI * Time.deltaTime, 0);
         }
         else
         {
-            
+            /*Vector3 dir = m_Waypoints[CurrentWaypoint].position - transform.position;
+
+            // Falls die Schrittlänge größer ist als die Entfernung zum Ziel
+            // normalisierte Vektoren haben die Länge 1, behalten aber ihre Richtung
+            dir = dir.normalized;
+            dir = dir * Time.deltaTime * m_Movementspeed;
+            if (dir.magnitude > Vector3.Distance(m_Waypoints[CurrentWaypoint].position, transform.position))
+            {
+                //m_GoingForward = !m_GoingForward;
+                // Modulo hilft hier um kein out of range zu bekommen
+                CurrentWaypoint = (CurrentWaypoint + m_Waypoints.Length) % m_Waypoints.Length;
+            }
+
+            // Im Standard nutzen wir den lokalen Space bei Transform.Translate
+            transform.Translate(dir, Space.World);
+            transform.forward = Vector3.RotateTowards(transform.forward, dir.normalized, Mathf.PI * Time.deltaTime, 0);*/
         }
-
-    }
-
-    // Find Player in Level
-    private bool FindPlayer()
-    {
-        if (Vector3.Distance(GameManager.Instance.Character.transform.localPosition, transform.position) <= 5)
-        {
-            return true;
-        }
-
-        return false;
     }
 }
