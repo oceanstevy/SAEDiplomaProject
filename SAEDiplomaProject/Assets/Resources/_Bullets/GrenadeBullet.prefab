@@ -317,9 +317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_WeaponType: 2
-  m_EndPosition: {x: 18.284096, y: 14.196332, z: 33.076393}
+  m_EndPosition: {x: 5.935405, y: 9.393558, z: 36.516563}
   m_DefaultBulletSpeed: 60
   m_GrenadePushForce: 30
+  m_Radius: 10
 --- !u!54 &3804485220046074230
 Rigidbody:
   m_ObjectHideFlags: 0
