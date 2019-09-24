@@ -96,10 +96,11 @@ public class GameManager : MonoBehaviour
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
 
-        //Searches every Event
-        if (GameObject.FindGameObjectsWithTag("Doors").Length > 0)
+        //Searches every Door
+        m_Doors = new List<GameObject>();
+        if (GameObject.FindGameObjectsWithTag("Door").Length > 0)
         {
-            m_Events.AddRange(GameObject.FindGameObjectsWithTag("Doors"));
+            m_Doors.AddRange(GameObject.FindGameObjectsWithTag("Door"));
         }
 
         //Creates new Player
