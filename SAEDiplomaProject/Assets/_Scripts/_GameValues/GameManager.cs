@@ -100,7 +100,11 @@ public class GameManager : MonoBehaviour
 
     private void GetIntercomMessages()
     {
+        IntercomMassages = new List<IntercomValue>();
         // First Audio Clip
-        m_IntercomMassages.Add(new IntercomValue(Resources.Load<AudioClip>("_Audioclip/Audio01"), "Lohn isch da", Resources.Load<Image>("_Icons/Audio01")));
+        IntercomMassages.Add(new IntercomValue((AudioClip)Resources.Load("_Audioclip/Audio02"), "Anruf von Korrekte Typ", Resources.Load<Sprite>("_Icons/Audio01")));
+        
+
+
     }
 }
