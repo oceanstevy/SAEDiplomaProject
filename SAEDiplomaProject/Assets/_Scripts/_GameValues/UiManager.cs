@@ -64,5 +64,7 @@ public class UiManager : MonoBehaviour
     {
         Crosshair = GameObject.Find("UiCorsshair");
         TestText = GameObject.Find("TestText");
+        Intercom = GameObject.Find("Intercom");
+        m_Intercom.SetActive(false);
     }
 }

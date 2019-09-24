@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Vector3 m_EndPosition;
     [SerializeField] private int m_DefaultBulletSpeed;
     [SerializeField] private int m_GrenadePushForce;
+    [SerializeField] private int m_Radius;
     private float m_ExpireTimer = 0.0f;
     #endregion MemberVariables
     #region Properties
@@ -46,20 +47,12 @@ public class Bullet : MonoBehaviour
     //Deault Gunshot
     private void DefaultBulletMovement()
     {
-        //Increase Decay time, so we can get a time for decay if we hit nothing
-        m_ExpireTimer += Time.deltaTime;
-        if (m_ExpireTimer > 3.0f)
-        {
-            Destroy(this.gameObject);
-        }
         transform.position = Vector3.MoveTowards(transform.position, EndPosition, m_DefaultBulletSpeed*Time.deltaTime);
     }
 
     //Granade Gunshot
     private void GrenadeShot()
     {
-        //Increase Decay time, so we can get a time for decay if we hit nothing
-        m_ExpireTimer += Time.deltaTime;
         GetComponent<Rigidbody>().AddForce((EndPosition - transform.position) * m_GrenadePushForce);
         WeaponType = 0;
     }
@@ -68,13 +61,24 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
         {
-            Destroy(this.gameObject);
+            if (this.gameObject.name == "GrenadeBullet(Clone)")
+            {
+                Instantiate(Resources.Load<GameObject>("_Effects/Explosion"),this.transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    //Decays Bullet after time
+    void DecayBullet()
     {
-        if (collision.gameObject.tag != "Player")
+        //Increase Decay time, so we can get a time for decay if we hit nothing
+        m_ExpireTimer += Time.deltaTime;
+        if (m_ExpireTimer > 3.0f)
         {
             Destroy(this.gameObject);
         }

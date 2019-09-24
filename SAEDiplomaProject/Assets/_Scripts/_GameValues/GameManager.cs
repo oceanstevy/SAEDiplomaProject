@@ -10,15 +10,15 @@ public class GameManager : MonoBehaviour
     private static GameManager m_Instance;
 
     //Overworld Values
-    private List<GameObject> m_Enemies;
+    private List<GameObject> m_Enemies = new List<GameObject>();
     private List<GameObject> m_Items;
     private List<GameObject> m_Events;
-    private List<IntercomValue> m_IntercomMassages;
+    [SerializeField]private List<IntercomValue> m_IntercomMassages;
     private List<GameObject> m_Doors;
 
     //Player Values
     private Player m_Player;
-
+    private GameObject m_Character;
     #endregion MemberVariables
     #region Properties
     /// <summary>
@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
     /// Loads all doors of scene
     /// </summary>
     public List<GameObject> Doors { get => m_Doors; set => m_Doors = value; }
+    /// <summary>
+    /// Position of Player
+    /// </summary>
+    public GameObject Character { get => m_Character; set => m_Character = value; }
 
     #endregion Properties
 
@@ -99,13 +103,14 @@ public class GameManager : MonoBehaviour
             m_Events.AddRange(GameObject.FindGameObjectsWithTag("Event"));
         }
 
-
         //Searches every Door
         m_Doors = new List<GameObject>();
         if (GameObject.FindGameObjectsWithTag("Door").Length > 0)
         {
             m_Doors.AddRange(GameObject.FindGameObjectsWithTag("Door"));
         }
+
+        m_Character = GameObject.FindGameObjectWithTag("Player");
 
         //Creates new Player
         Player = new Player(100, 100, 0);
@@ -116,7 +121,8 @@ public class GameManager : MonoBehaviour
 
     private void GetIntercomMessages()
     {
+        IntercomMassages = new List<IntercomValue>();
         // First Audio Clip
-        //m_IntercomMassages.Add(new IntercomValue(Resources.Load<AudioClip>("_Audioclip/Audio01"), "Lohn isch da", Resources.Load<Image>("_Icons/Audio01")));
+        IntercomMassages.Add(new IntercomValue((AudioClip)Resources.Load("_Audioclip/Audio02"), "Anruf von Korrekte Typ", Resources.Load<Sprite>("_Icons/Audio01")));
     }
 }
