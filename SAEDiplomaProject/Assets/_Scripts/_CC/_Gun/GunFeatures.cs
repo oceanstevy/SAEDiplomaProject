@@ -8,9 +8,11 @@ public class GunFeatures : MonoBehaviour
     [SerializeField] private Transform m_BulletSpawnPos;
     [SerializeField] private int m_MaxStaseDistace;
     [SerializeField] private int m_StasePushForce;
+    [SerializeField] private GameObject m_LightBeam;
     private float m_TimeBetweenShot = 0.0f;
     private bool m_IsStaseActive = false;
     private GameObject m_StaseObject;
+    private GameObject m_InstantiatedLightBeam;
     #endregion MemberVariables
     // Start is called before the first frame update
     void Start()
@@ -35,8 +37,8 @@ public class GunFeatures : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //FireBullet(1, "DefaultBullet");
-            //FireBullet(2, "GrenadeBullet");
-            FireBullet(3, "Welding");
+            FireBullet(2, "GrenadeBullet");
+            //FireBullet(0, "");
             //FireStase();
         }
     }
