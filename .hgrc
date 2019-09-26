@@ -1,0 +1,10 @@
+    [merge-patterns]
+    **.unity = unityyamlmerge
+    **.prefab = unityyamlmerge
+
+    [merge-tools]
+    unityyamlmerge.executable = <path to UnityYAMLMerge>
+    unityyamlmerge.args = merge -p --force $base $other $local $output
+    unityyamlmerge.checkprompt = True
+    unityyamlmerge.premerge = False
+    unityyamlmerge.binary = False
