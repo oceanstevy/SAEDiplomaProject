@@ -38,7 +38,7 @@ public class Explosion : MonoBehaviour
                 {
                     if (m_Colliders[i].gameObject.GetComponent<Rigidbody>() != null)
                     {
-                        if (m_Colliders[i].gameObject.tag != "Player")
+                        if (m_Colliders[i].gameObject.tag != "Door")
                         {
                             float distance = m_Radius - Vector3.Magnitude(m_Colliders[i].gameObject.transform.position - gameObject.transform.position);
                             m_Colliders[i].gameObject.GetComponent<Rigidbody>().AddForce((m_Colliders[i].gameObject.transform.position - gameObject.transform.position).normalized * distance * m_ExplosionForce, ForceMode.Impulse);
@@ -58,7 +58,7 @@ public class Explosion : MonoBehaviour
                 {
                     if (m_Colliders[i].gameObject.GetComponent<Rigidbody>() != null)
                     {
-                        if (m_Colliders[i].gameObject.tag != "Player")
+                        if (m_Colliders[i].gameObject.tag != "Door")
                         {
                             m_Colliders[i].gameObject.transform.position = Vector3.MoveTowards(m_Colliders[i].gameObject.transform.position, transform.position, m_PullForce * Time.deltaTime);
                         }
