@@ -214,5 +214,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Radius: 10
-  m_ExplosionForce: 50
+  m_ExplosionForce: 1
   m_PullForce: 2

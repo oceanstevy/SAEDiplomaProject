@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Skript erstellt von Chiavini Luca
+/// </summary>
+
 public class IntercomValue : MonoBehaviour
 {
     #region MemberVariables
     private AudioClip m_Voiceclip;
     private AudioClip m_Ringtone;
+    private AudioClip m_HangUp;
     private string m_Header;
     private Sprite m_Portrait;
     private float m_Timer;
@@ -69,6 +74,7 @@ public class IntercomValue : MonoBehaviour
     /// Audio Ringtone
     /// </summary>
     public AudioClip Ringtone { get => m_Ringtone; set => m_Ringtone = value; }
+    public AudioClip HangUp { get => m_HangUp; set => m_HangUp = value; }
     #endregion Properties
 
     public IntercomValue(AudioClip voiceclip, string header, Sprite portrait)
@@ -81,6 +87,8 @@ public class IntercomValue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_Ringtone = (AudioClip)Resources.Load("_Audioclip/Ringtone");
+        m_HangUp = (AudioClip)Resources.Load("_Audioclip/HangUp");
         //Put the Panel out of the Screen
         UiManager.Instance.Intercom.transform.position = m_PanelOut.transform.position;
     }
@@ -101,12 +109,11 @@ public class IntercomValue : MonoBehaviour
         /// </summary>
         if (m_Incoming == true)
         {
-            Debug.Log("Res");
             //Get the Panel
             GameObject Intercompanel = UiManager.Instance.Intercom;
 
             //Let it Slide into the Screen
-            Intercompanel.transform.position = new Vector3(Intercompanel.transform.position.x - (200 * Time.deltaTime) , Intercompanel.transform.position.y, Intercompanel.transform.position.z);
+            Intercompanel.transform.position = new Vector3(Intercompanel.transform.position.x - (100 * Time.deltaTime) , Intercompanel.transform.position.y, Intercompanel.transform.position.z);
 
             //Stop Sliding if the Panel has reached the right position
             if (Intercompanel.transform.position.x <= m_PanelIn.transform.position.x)
@@ -116,6 +123,8 @@ public class IntercomValue : MonoBehaviour
 
                 //Start the Call
                 StartingCall(m_Temp);
+
+                
             }
         }
         #endregion Incoming Call
@@ -139,6 +148,10 @@ public class IntercomValue : MonoBehaviour
 
             //Call has ended
             m_Callended = true;
+
+            //Hang Up Sound
+            AudioSource HangUp = this.GetComponent<AudioSource>();
+            HangUp.PlayOneShot(m_HangUp, 0.6f);
         }
         #endregion Call is activ
 
@@ -164,6 +177,7 @@ public class IntercomValue : MonoBehaviour
                 //Hide the Panel
                 UiManager.Instance.Intercom.SetActive(false);
                 
+
             }
         }
         #endregion Call has ended
@@ -173,6 +187,7 @@ public class IntercomValue : MonoBehaviour
     //Trigger Intercom
     private void IncomingCall(IntercomValue call)
     {
+
         //Setting the bool to true
         m_Incoming = true;
 
@@ -189,12 +204,15 @@ public class IntercomValue : MonoBehaviour
 
         //Save the Data for later
         m_Temp = call;
+
+        AudioSource ringtone = this.GetComponent<AudioSource>();
+        ringtone.PlayOneShot(m_Ringtone, 0.6f);
     }
 
     //Starting Call
     private void StartingCall(IntercomValue call)
     {
-
+        
         //Reset Timer
         m_Timer = 0;
 
