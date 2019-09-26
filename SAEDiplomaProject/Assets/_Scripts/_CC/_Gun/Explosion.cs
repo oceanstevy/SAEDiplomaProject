@@ -40,7 +40,8 @@ public class Explosion : MonoBehaviour
                     {
                         if (m_Colliders[i].gameObject.tag != "Player")
                         {
-                            m_Colliders[i].gameObject.GetComponent<Rigidbody>().AddForce((m_Colliders[i].gameObject.transform.position - gameObject.transform.position) * m_ExplosionForce * 4);
+                            float distance = m_Radius - Vector3.Magnitude(m_Colliders[i].gameObject.transform.position - gameObject.transform.position);
+                            m_Colliders[i].gameObject.GetComponent<Rigidbody>().AddForce((m_Colliders[i].gameObject.transform.position - gameObject.transform.position).normalized * distance * m_ExplosionForce, ForceMode.Impulse);
                         }
                     }
                     i++;
@@ -51,7 +52,7 @@ public class Explosion : MonoBehaviour
                 m_CanShrink = true;
                 m_ExplosionPos = transform.position;
                 m_Colliders = Physics.OverlapSphere(m_ExplosionPos, m_Radius);
-                transform.localScale -= new Vector3(Time.deltaTime * 17, Time.deltaTime * 17, Time.deltaTime * 17);
+                transform.localScale -= new Vector3(Time.deltaTime * 5, Time.deltaTime * 5, Time.deltaTime * 5);
                 int i = 0;
                 while (i < m_Colliders.Length)
                 {
