@@ -1221,8 +1221,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: "Second year of study at SAE Institute. Plays Hockey, thinks\n\n the best
-    part of life in Germany is beer."
+  m_Text: 'Studies Game Art at SAE Institute,
+
+
+    argues that tea is better than coffee'
 --- !u!222 &154074470
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1487,7 +1489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &193841438
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1961,8 +1963,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: "Second year of study at SAE Institute. Plays Hockey, thinks\n\n the best
-    part of life in Germany is beer."
+  m_Text: 'Third semester of Game Art at SAE Institute
+
+
+    prefers shooter games over going outside.'
 --- !u!222 &250496312
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2039,7 +2043,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: 'Also part of the Environment and Level design teams, '
+  m_Text: 'Also part of the Environment and Level design teams,
+
+
+    Is a bad bitch.'
 --- !u!222 &279358631
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3016,7 +3023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: 
+  m_Text: "Studying Game Art at SAE Institute, \n\nlikes football, not a fan of D\xFCsseldorf."
 --- !u!222 &375306086
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3080,7 +3087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28b4289ff7b06b64a9266f89254fcbbd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4051,7 +4058,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: "Animation and Game Art student in K\xF6ln. Enjoys drawing\n\nand playing
+  m_Text: "Animation and Game Art student in K\xF6ln. Likes drawing\n\nand playing
     Rocket League."
 --- !u!222 &530729865
 CanvasRenderer:
@@ -4193,7 +4200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31bdefbf3b7370e42b01ac88bd938a17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4880,7 +4887,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: 
+  m_Text: "Programming student at SAE in K\xF6ln. Skilled \n\nprogrammer, is pretty
+    convinced catching Pokemon is a job."
 --- !u!222 &646165718
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5334,7 +5342,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: "Game art student at SAE in K\xF6ln,\n\nand likes Pandas."
+  m_Text: "Game art student at SAE in K\xF6ln,\n\nand likes Pandas, but not Bamboo."
 --- !u!222 &699367630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5485,7 +5493,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: 
+  m_Text: 'Third semester of Game Art studies,
+
+
+    enjoys mustard.'
 --- !u!222 &733424750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7221,7 +7232,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: 
+  m_Text: 'Studies Game Art at SAE Institute. Likes
+
+
+    being at home, not a fan of people.'
 --- !u!222 &924597788
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7927,7 +7941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6090d2f28fbd4b44aa204cff43c22fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8143,7 +8157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2998b769d159c594293f1968a0e8d2e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8216,7 +8230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8087345fbeeb9ed4b8207511011c432f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8234,6 +8248,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075165629}
   m_CullTransparentMesh: 0
+--- !u!114 &1093841179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  sunSize:
+    m_OverrideState: 0
+    m_Value: 0.04
+    min: 0
+    max: 1
+  sunSizeConvergence:
+    m_OverrideState: 0
+    m_Value: 5
+    min: 1
+    max: 10
+  atmosphereThickness:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 5
+  skyTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.6179246, g: 1, b: 0.89136255, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  groundColor:
+    m_OverrideState: 0
+    m_Value: {r: 0.4716981, g: 0.37460983, b: 0.077874675, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  enableSunDisk:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!1 &1122177082
 GameObject:
   m_ObjectHideFlags: 0
@@ -9114,7 +9204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1192611778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9230,7 +9320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20cbcd1fcf9359c47bad421a1d88bd74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11187,7 +11277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1491051763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11755,82 +11845,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568781240}
   m_CullTransparentMesh: 0
---- !u!114 &1580931351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  sunSize:
-    m_OverrideState: 0
-    m_Value: 0.04
-    min: 0
-    max: 1
-  sunSizeConvergence:
-    m_OverrideState: 0
-    m_Value: 5
-    min: 1
-    max: 10
-  atmosphereThickness:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 5
-  skyTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.6179246, g: 1, b: 0.89136255, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  groundColor:
-    m_OverrideState: 0
-    m_Value: {r: 0.4716981, g: 0.37460983, b: 0.077874675, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  enableSunDisk:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!1 &1597153144
 GameObject:
   m_ObjectHideFlags: 0
@@ -12111,7 +12125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee4d1042bacbffd47af0a6ee198a9731, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13548,7 +13562,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97444d59e8265d44e8d23c96bd012c2b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13855,7 +13869,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: <b>Vladi Perstev</b>
+  m_Text: <b>Vladi Pertsev</b>
 --- !u!222 &1784564950
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14020,7 +14034,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 931576185}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.1129456
+  m_Size: 0.112945594
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14992,7 +15006,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: 
+  m_Text: 'Third semester student of Programming,
+
+
+    buys expensive shoes just to trash them.'
 --- !u!222 &1904324430
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15785,7 +15802,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.5
-  m_Text: 
+  m_Text: 'Third semester Programming student,
+
+
+    likes foxes. Is sure Memes are life.'
 --- !u!222 &2058101124
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16000,7 +16020,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6957dee99b69063438da756df368cbcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2bf653b5e80c4f478abe56b83d5ea0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16179,7 +16199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7921826383775132239}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
