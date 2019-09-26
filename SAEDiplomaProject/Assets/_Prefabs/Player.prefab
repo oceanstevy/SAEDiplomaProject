@@ -277,7 +277,8 @@ MonoBehaviour:
   m_BulletSpawnPos: {fileID: 1284880515}
   m_MaxStaseDistace: 20
   m_StasePushForce: 60
-  m_GranadePushForce: 6000
+  m_LightBeam: {fileID: 2346725373214232804, guid: 64ac43a291f98614d943e2842d18effd,
+    type: 3}
 --- !u!1 &1269421358922691562
 GameObject:
   m_ObjectHideFlags: 0
