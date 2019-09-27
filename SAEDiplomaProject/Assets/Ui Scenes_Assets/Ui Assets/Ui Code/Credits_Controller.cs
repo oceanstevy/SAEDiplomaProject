@@ -73,7 +73,8 @@ public class Credits_Controller : MonoBehaviour
             _Luca_Headshot.sprite = _Luca_Real_Sprite;
             _Luca_Bio.text = "Diploma and Bachelor student at SAE Institute. Produces\n\nmusic, and loves cats.";
             _Steven_Headshot.sprite = _Steven_Real_Sprite;
-            _Steven_Bio.text = "";
+            _Steven_Bio.text = "Programming student at SAE in Köln. Skilled\n\nprogrammer, " +
+                "is pretty convinced catching Pokemon is a job.";
             return;
         }
     }
