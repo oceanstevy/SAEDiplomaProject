@@ -52,7 +52,7 @@ public class Explosion : MonoBehaviour
                 m_CanShrink = true;
                 m_ExplosionPos = transform.position;
                 m_Colliders = Physics.OverlapSphere(m_ExplosionPos, m_Radius);
-                transform.localScale -= new Vector3(Time.deltaTime * 5, Time.deltaTime * 5, Time.deltaTime * 5);
+                transform.localScale -= new Vector3(Time.deltaTime * 7, Time.deltaTime * 7, Time.deltaTime * 7);
                 int i = 0;
                 while (i < m_Colliders.Length)
                 {

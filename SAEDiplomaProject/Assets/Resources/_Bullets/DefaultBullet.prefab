@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8691431757138161820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.91, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.58175004}
+  m_LocalScale: {x: 0.1, y: 0.092427686, z: 0.09814278}
   m_Children:
   - {fileID: 5944713461607766040}
   m_Father: {fileID: 0}
@@ -97,6 +97,8 @@ MonoBehaviour:
   m_WeaponType: 1
   m_EndPosition: {x: -1.8201257, y: -0.46398225, z: -1.4300002}
   m_DefaultBulletSpeed: 60
+  m_GrenadePushForce: 0
+  m_Radius: 0
 --- !u!54 &-6604500269699182590
 Rigidbody:
   m_ObjectHideFlags: 0

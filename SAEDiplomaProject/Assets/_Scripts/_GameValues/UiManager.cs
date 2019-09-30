@@ -10,7 +10,9 @@ public class UiManager : MonoBehaviour
     private GameObject m_StartGameButton;
     private GameObject m_TestText;
     private GameObject m_Intercom;
+    private GameObject m_Inventory;
     #endregion MemberVariables
+
     #region Properties
     /// <summary>
     /// This is the Crosshair we're aiming with
@@ -28,7 +30,10 @@ public class UiManager : MonoBehaviour
     /// Intercom UI
     /// </summary>
     public GameObject Intercom { get => m_Intercom; set => m_Intercom = value; }
-
+    /// <summary>
+    /// Get and set of Inventory
+    /// </summary>
+    public GameObject Inventory { get => m_Inventory; set => m_Inventory = value; }
     #endregion Properties
     private void Awake()
     {
@@ -47,24 +52,15 @@ public class UiManager : MonoBehaviour
         FindUiElements();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Searches and sets UiElements
     private void FindUiElements()
     {
         Crosshair = GameObject.Find("UiCorsshair");
         TestText = GameObject.Find("TestText");
         Intercom = GameObject.Find("Intercom");
+        Inventory = GameObject.Find("Inventory");
+
         m_Intercom.SetActive(false);
+        Inventory.SetActive(false);
     }
 }

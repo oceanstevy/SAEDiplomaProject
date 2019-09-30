@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> m_Events;
     [SerializeField]private List<IntercomValue> m_IntercomMassages;
     private List<GameObject> m_Doors;
+    private Enums.WeaponAttachment m_ActiveWeaponType;
 
     //Player Values
     private Player m_Player;
@@ -53,6 +54,10 @@ public class GameManager : MonoBehaviour
     /// Position of Player
     /// </summary>
     public GameObject Character { get => m_Character; set => m_Character = value; }
+    /// <summary>
+    /// The Active type of Our Weapon
+    /// </summary>
+    public Enums.WeaponAttachment ActiveWeaponType { get => m_ActiveWeaponType; set => m_ActiveWeaponType = value; }
 
     #endregion Properties
 
@@ -71,12 +76,6 @@ public class GameManager : MonoBehaviour
 
         //Initializes GameManagerValues
         Initialize();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
     }
 
     // Find Events
@@ -117,6 +116,9 @@ public class GameManager : MonoBehaviour
 
         // Fill Intercom Messages
         GetIntercomMessages();
+
+        // Set WeaponType to default
+        ActiveWeaponType = Enums.WeaponAttachment.Default;
     }
 
     private void GetIntercomMessages()

@@ -31,12 +31,22 @@ public class GunFeatures : MonoBehaviour
     //Shoot and Aim
     void GunShot()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !UiManager.Instance.Inventory.active)
         {
-            //FireBullet(1, "DefaultBullet");
-            //FireBullet(2, "GrenadeBullet");
-            //FireBullet(0, "");
-            FireStase();
+            switch (GameManager.Instance.ActiveWeaponType)
+            {
+                case Enums.WeaponAttachment.Default:
+                    FireBullet(1, "DefaultBullet");
+                    break;
+                case Enums.WeaponAttachment.Grenade:
+                    FireBullet(2, "GrenadeBullet");
+                    break;
+                case Enums.WeaponAttachment.Stasis:
+                    FireStase();
+                    break;
+                case Enums.WeaponAttachment.Welding:
+                    break;
+            }
         }
     }
 
@@ -59,7 +69,7 @@ public class GunFeatures : MonoBehaviour
                 GameObject tmpBullet = Resources.Load<GameObject>("_Bullets/" + name);
                 tmpBullet.gameObject.GetComponent<Bullet>().EndPosition = hit.point;
                 tmpBullet.gameObject.GetComponent<Bullet>().WeaponType = type;
-                Instantiate(tmpBullet, m_BulletSpawnPos.position, this.transform.rotation);
+                Instantiate(tmpBullet, m_BulletSpawnPos.position, Quaternion.Euler(Camera.main.gameObject.transform.rotation.x, Camera.main.gameObject.transform.rotation.y,0));
             }
             //If we hit nothing with raycast, we need a max distance in that case
             else
@@ -67,7 +77,7 @@ public class GunFeatures : MonoBehaviour
                 GameObject tmpBullet = Resources.Load<GameObject>("_Bullets/" + name);
                 tmpBullet.gameObject.GetComponent<Bullet>().EndPosition = ray.GetPoint(50);
                 tmpBullet.gameObject.GetComponent<Bullet>().WeaponType = type;
-                Instantiate(tmpBullet, m_BulletSpawnPos.position, Quaternion.identity);
+                Instantiate(tmpBullet, m_BulletSpawnPos.position, Quaternion.Euler(Camera.main.gameObject.transform.rotation.x, Camera.main.gameObject.transform.rotation.y, 0));
             }
         }
     }
