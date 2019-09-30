@@ -62,7 +62,7 @@ public class Credits_Controller : MonoBehaviour
             _Luca_Headshot.sprite = _Luca_Fake_Sprite;
             _Luca_Bio.text = "Drives much too quickly\n\nPretty decent DJ though";
             _Steven_Headshot.sprite = _Steven_Fake_Sprite;
-            _Steven_Bio.text = "He will shown\n\nyou DA WAE";
+            _Steven_Bio.text = "He will show\n\nyou DA WAE";
             return;
         }
         //changes lucas easter egg back to the proper sprite
