@@ -25,4 +25,10 @@ public static class Enums
         Key3 = 4,
         Key4 = 5
     }
+    public enum Walkstate
+    {
+        Walk = 0,
+        Run = 1,
+        Crouch = 2,
+    }
 }
